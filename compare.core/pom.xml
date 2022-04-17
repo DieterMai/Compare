@@ -11,9 +11,4 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../build/maven/base</relativePath>
 	</parent>
-
-
-	<build>
-		
-	</build>
 </project>

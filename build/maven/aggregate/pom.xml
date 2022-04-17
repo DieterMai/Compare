@@ -18,6 +18,7 @@
 
 	<modules>
 		<module>../../../compare.core</module>
+		<module>../../../compare.jdk.test</module>
 	</modules>
 
 </project>

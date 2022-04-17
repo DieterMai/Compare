@@ -68,10 +68,9 @@
 
 
 	<build>
-		<sourceDirectory>src/main/java</sourceDirectory>
 		<!-- <testSourceDirectory>test</testSourceDirectory> -->
-		
-	
+
+
 		<plugins>
 			<!-- Explicitly define versions of the default plug-ins -->
 			<plugin>
@@ -116,32 +115,6 @@
 				<configuration>
 					<compilerArgs>--enable-preview</compilerArgs>
 				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>3.0.0</version>
-				<executions>
-					<execution>
-						<id>run</id>
-						<configuration>
-							<executable>java</executable>
-							<arguments>
-								<argument>-classpath</argument>
-								<classpath/>
-					            <argument>dev.dietermai.compare.CompareApp</argument>
-							<!--
-								<argument>- -module-path</argument>
-								<modulepath />
-								<argument>- -module</argument>
-								<argument>dev.dietermai.compare/dev.dietermai.compare.CompareApp</argument>
-							-->
-							</arguments>
-						</configuration>
-
-					</execution>
-				</executions>
 			</plugin>
 
 			<!-- Just sum helper to check out plug-in help -->

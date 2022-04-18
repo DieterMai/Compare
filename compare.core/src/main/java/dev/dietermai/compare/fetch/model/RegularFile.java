@@ -1,5 +1,5 @@
 package dev.dietermai.compare.fetch.model;
 
-public record RegularFileModel(FileModel file) {
+public record RegularFile(CommonFile file) {
 
 }

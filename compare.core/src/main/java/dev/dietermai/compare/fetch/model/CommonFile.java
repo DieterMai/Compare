@@ -1,5 +1,5 @@
 package dev.dietermai.compare.fetch.model;
 
-public record DirectoryModel(FileModel file) {
+public record CommonFile(String path) {
 
 }

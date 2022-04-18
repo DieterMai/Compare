@@ -11,20 +11,20 @@ import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
 
-class FileTreeModelTest {
+class FileTreeTest {
 
 	@Test
 	void testMethodRootReturnsRoot() {
 		File root = new File("root");
-		FileTreeModel fileTreeModel = new FileTreeModel(root, Map.of(), Map.of());
+		FileTree fileTreeModel = new FileTree(root, Map.of(), Map.of());
 		assertEquals(root, fileTreeModel.root());
 	}
 
 	@Test
 	void testGetRegularFileOfEmptyRootReturnsEmptySet() {
-		FileTreeModel fileTreeModel = new FileTreeModel(new File("root"), Map.of(), Map.of());
+		FileTree fileTreeModel = new FileTree(new File("root"), Map.of(), Map.of());
 
-		Set<RegularFileModel> regularFiles = fileTreeModel.getRegularFiles(".");
+		Set<RegularFile> regularFiles = fileTreeModel.getRegularFiles(".");
 		assertEquals(Set.of(), regularFiles);
 	}
 
@@ -39,7 +39,7 @@ class FileTreeModelTest {
 		var filesMap = Map.of(".", rootFiles, "dir1", dir1Files, "dir2", dir2Files, "dir3", dir3Files);
 		var dirMap = Map.of(".", rootDirs);
 
-		FileTreeModel fileTreeModel = new FileTreeModel(new File("root"), filesMap, dirMap);
+		FileTree fileTreeModel = new FileTree(new File("root"), filesMap, dirMap);
 
 		assertEquals(rootFiles, fileTreeModel.getRegularFiles("."));
 		assertEquals(dir1Files, fileTreeModel.getRegularFiles("dir1"));
@@ -54,18 +54,18 @@ class FileTreeModelTest {
 
 	@Test
 	void testGetDirectoriesOfEmptyRootReturnsEmptySet() {
-		FileTreeModel fileTreeModel = new FileTreeModel(new File("root"), Map.of(), Map.of());
+		FileTree fileTreeModel = new FileTree(new File("root"), Map.of(), Map.of());
 
-		Set<DirectoryModel> directories = fileTreeModel.getDirectories(".");
+		Set<Directory> directories = fileTreeModel.getDirectories(".");
 		assertEquals(Set.of(), directories);
 	}
 
-	private Set<RegularFileModel> toRegFileModelSet(String... names) {
-		return Arrays.stream(names).map(FileModel::new).map(RegularFileModel::new).collect(Collectors.toSet());
+	private Set<RegularFile> toRegFileModelSet(String... names) {
+		return Arrays.stream(names).map(CommonFile::new).map(RegularFile::new).collect(Collectors.toSet());
 	}
 
-	private Set<DirectoryModel> toDirectoriesModelSet(String... names) {
-		return Arrays.stream(names).map(FileModel::new).map(DirectoryModel::new).collect(Collectors.toSet());
+	private Set<Directory> toDirectoriesModelSet(String... names) {
+		return Arrays.stream(names).map(CommonFile::new).map(Directory::new).collect(Collectors.toSet());
 	}
 
 }

@@ -17,6 +17,12 @@
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<maven.compiler.release>${java.version}</maven.compiler.release>
 
+		<!-- Dependency versions -->
+		<org.junit.jupiter.version>5.8.2</org.junit.jupiter.version>
+		<mockito-junit-jupiter.version>4.4.0</mockito-junit-jupiter.version>
+		<mockito-core.version>4.4.0</mockito-core.version>
+
+
 		<!-- maven plugin versions -->
 		<maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
 		<maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
@@ -30,18 +36,6 @@
 		<maven-help-plugin.version>3.2.0</maven-help-plugin.version>
 		<maven-dependency-plugin.version>3.2.0</maven-dependency-plugin.version>
 	</properties>
-
-
-	<dependencies>
-		<!-- 
-		<dependency>
-			<groupId>com.google.inject</groupId>
-			<artifactId>guice</artifactId>
-			<version>5.1.0</version>
-		</dependency>
-		-->
-	</dependencies>
-
 
 	<build>
 		<plugins>
@@ -151,7 +145,7 @@
 				<executions>
 					<execution>
 						<id>lib</id>
-						<phase>package</phase>
+						<phase>none</phase>
 						<goals>
 							<goal>copy-dependencies</goal>
 						</goals>

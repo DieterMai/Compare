@@ -18,7 +18,7 @@
 
 	<modules>
 		<module>../../../compare.core</module>
-		<module>../../../compare.jdk.test</module>
+		<module>../../../compare.test.extApi</module>
 		<module>../../../compare.core.test.unit</module>
 	</modules>
 

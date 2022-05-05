@@ -17,9 +17,9 @@
 
 
 	<modules>
-		<module>../../../compare.core</module>
-		<module>../../../compare.test.extApi</module>
-		<module>../../../compare.core.test.unit</module>
+		<module>../../../core</module>
+		<module>../../../test.extApi</module>
+		<module>../../../core.test.unit</module>
 	</modules>
 
 </project>

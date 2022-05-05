@@ -18,8 +18,9 @@
 
 	<modules>
 		<module>../../../core</module>
-		<module>../../../test.extApi</module>
 		<module>../../../core.test.unit</module>
+		<module>../../../core.test.integration</module>
+		<module>../../../test.extApi</module>
 	</modules>
 
 </project>

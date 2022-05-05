@@ -7,6 +7,9 @@ import java.io.File;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+/**
+ * This tests whether java.io.File behaves as expected
+ */
 class FileTest {
 
 	public static final String BASE_PATH = "./testGround/";

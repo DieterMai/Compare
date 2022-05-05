@@ -12,6 +12,9 @@ import org.junit.jupiter.api.Test;
 
 class FileTreeTest {
 
+	/*
+	 * Verifies that the root file given as root is the root of the FileTree 
+	 */
 	@Test
 	void testMethodRootReturnsRoot() {
 		File root = new File("root");
@@ -19,6 +22,7 @@ class FileTreeTest {
 		assertEquals(root, fileTreeModel.root());
 	}
 
+	
 	@Test
 	void testGetRegularFileOfEmptyRootReturnsEmptySet() {
 		FileTree fileTreeModel = new FileTree(new File("root"), Map.of(), Map.of());
@@ -29,11 +33,11 @@ class FileTreeTest {
 
 	@Test
 	void testGetRegularFileOfRootReturnsContainingFiles() {
-		var rootDirs = toDirectoriesModelSet("dir1", "dir2", "dir3");
-		var rootFiles = toRegFileModelSet("fileRootA", "fileRootB", "fileRootC");
-		var dir1Files = toRegFileModelSet("file1A", "file1B", "file1C");
-		var dir2Files = toRegFileModelSet("file1A", "file1B", "file1C");
-		var dir3Files = toRegFileModelSet();
+		var rootDirs = toDirectorySet("dir1", "dir2", "dir3");
+		var rootFiles = toRegularFileSet("fileRootA", "fileRootB", "fileRootC");
+		var dir1Files = toRegularFileSet("file1A", "file1B", "file1C");
+		var dir2Files = toRegularFileSet("file1A", "file1B", "file1C");
+		var dir3Files = toRegularFileSet();
 
 		var filesMap = Map.of(".", rootFiles, "dir1", dir1Files, "dir2", dir2Files, "dir3", dir3Files);
 		var dirMap = Map.of(".", rootDirs);
@@ -59,11 +63,11 @@ class FileTreeTest {
 		assertEquals(Set.of(), directories);
 	}
 
-	private Set<RegularFile> toRegFileModelSet(String... names) {
+	private Set<RegularFile> toRegularFileSet(String... names) {
 		return Arrays.stream(names).map(CommonFile::new).map(RegularFile::new).collect(Collectors.toSet());
 	}
 
-	private Set<Directory> toDirectoriesModelSet(String... names) {
+	private Set<Directory> toDirectorySet(String... names) {
 		return Arrays.stream(names).map(CommonFile::new).map(Directory::new).collect(Collectors.toSet());
 	}
 

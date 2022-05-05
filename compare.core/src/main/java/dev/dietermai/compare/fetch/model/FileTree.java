@@ -5,6 +5,10 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
+/**
+ * The FileTree represents 
+ * 
+ */
 public record FileTree(File root, Map<String, Set<RegularFile>> fileMap, Map<String, Set<Directory>> dirMap) {
 
 	public FileTree(File root, Map<String, Set<RegularFile>> fileMap, Map<String, Set<Directory>> dirMap) {

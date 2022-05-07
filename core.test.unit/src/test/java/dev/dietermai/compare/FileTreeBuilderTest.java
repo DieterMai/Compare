@@ -8,7 +8,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import dev.dietermai.compare.model.FileTree;
 import dev.dietermai.compare.model.RootDirectory;
 import dev.dietermai.compare.service.FSService;
 

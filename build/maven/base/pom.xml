@@ -21,6 +21,7 @@
 		<org.junit.jupiter.version>5.8.2</org.junit.jupiter.version>
 		<mockito-junit-jupiter.version>4.4.0</mockito-junit-jupiter.version>
 		<mockito-core.version>4.4.0</mockito-core.version>
+		<javax.inject.version>1</javax.inject.version>
 
 
 		<!-- maven plugin versions -->

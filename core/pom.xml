@@ -11,4 +11,13 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../build/maven/base</relativePath>
 	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>${javax.inject.version}</version>
+		</dependency>
+
+	</dependencies>
 </project>

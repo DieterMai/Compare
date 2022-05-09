@@ -8,7 +8,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import dev.dietermai.compare.model.RootDirectory;
+import dev.dietermai.compare.model.RootRecord;
 import dev.dietermai.compare.service.FSService;
 
 @ExtendWith(MockitoExtension.class)
@@ -25,8 +25,8 @@ class FileTreeBuilderTest {
 	
 	@Test
 	void test_getRootDirectory() {
-		assertEquals(RootDirectory.of("rootPath"), builder.buildFileTreeOf("rootPath").root());
-		assertEquals(RootDirectory.of("foo"), builder.buildFileTreeOf("foo").root());
+		assertEquals(RootRecord.of("rootPath"), builder.buildFileTreeOf("rootPath").root());
+		assertEquals(RootRecord.of("foo"), builder.buildFileTreeOf("foo").root());
 	}
 
 }

@@ -5,12 +5,12 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 
-class RootDirectoryTest {
+class RootRecordTest {
 
 	@Test
 	void test_of() {
-		assertEquals("foo", RootDirectory.of("foo").path());
-		assertEquals("bar", RootDirectory.of("bar").path());
+		assertEquals("foo", RootRecord.of("foo").path());
+		assertEquals("bar", RootRecord.of("bar").path());
 	}
 
 }

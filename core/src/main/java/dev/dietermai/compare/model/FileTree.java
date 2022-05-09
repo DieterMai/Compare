@@ -1,15 +1,23 @@
 package dev.dietermai.compare.model;
 
+import java.util.Set;
+
 public class FileTree {
 
-	private final RootDirectory rootDirectory;
-	
-	public FileTree(String rootPath) {
-		this.rootDirectory = RootDirectory.of(rootPath);
+	private final RootRecord rootDirectory;
+	private final Set<FileRecord> files;
+
+	public FileTree(RootRecord rootDirectory, Set<FileRecord> files) {
+		this.rootDirectory = rootDirectory;
+		this.files = files;
 	}
 
-	public RootDirectory root() {
+	public RootRecord root() {
 		return rootDirectory;
+	}
+
+	public Set<FileRecord> getFiles() {
+		return files;
 	}
 
 }

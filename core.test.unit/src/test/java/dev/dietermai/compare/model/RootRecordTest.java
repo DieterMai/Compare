@@ -1,6 +1,6 @@
 package dev.dietermai.compare.model;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
@@ -12,5 +12,4 @@ class RootRecordTest {
 		assertEquals("foo", RootRecord.of("foo").path());
 		assertEquals("bar", RootRecord.of("bar").path());
 	}
-
 }

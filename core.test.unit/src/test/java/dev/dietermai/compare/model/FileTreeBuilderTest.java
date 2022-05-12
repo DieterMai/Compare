@@ -1,4 +1,4 @@
-package dev.dietermai.compare;
+package dev.dietermai.compare.model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -8,6 +8,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import dev.dietermai.compare.model.FileTreeBuilder;
 import dev.dietermai.compare.model.RootRecord;
 import dev.dietermai.compare.service.FSService;
 

@@ -20,7 +20,7 @@ class DirectoryRecordTest {
 		DirectoryRecord dirA = DirectoryRecord.of(root, "dirA");
 		DirectoryRecord dirB = DirectoryRecord.of(dirA, "dirB");
 		DirectoryRecord dirC = DirectoryRecord.of(dirB, "dirC");
-		
+
 		assertEquals(root, dirA.parent());
 		assertEquals(dirA, dirB.parent());
 		assertEquals(dirB, dirC.parent());

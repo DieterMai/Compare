@@ -15,15 +15,16 @@ import dev.dietermai.compare.service.FSService;
 @ExtendWith(MockitoExtension.class)
 class FileTreeBuilderTest {
 
-	@Mock FSService fs;
-	
+	@Mock
+	FSService fs;
+
 	FileTreeBuilder builder;
-	
+
 	@BeforeEach
 	void beforeEach() {
 		builder = new FileTreeBuilder(fs);
 	}
-	
+
 	@Test
 	void test_getRootDirectory() {
 		assertEquals(RootRecord.of("rootPath"), builder.buildFileTreeOf("rootPath").root());

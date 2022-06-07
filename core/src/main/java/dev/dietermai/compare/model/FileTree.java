@@ -15,7 +15,7 @@ public class FileTree {
 		this.fileMap = new HashMap<>(fileMap);
 	}
 
-	FileTree(RootRecord root) {
+	public FileTree(RootRecord root) {
 		this.root = root;
 		this.fileMap = new HashMap<>();
 		this.fileMap.put(root, new HashSet<>());
@@ -30,6 +30,7 @@ public class FileTree {
 	}
 
 	// TODO maybe have only one add-method and use a switch do different things
+	// TODO file know its parent, so why have parent as its parameter?
 	public void addFile(IParent parent, FileRecord file) {
 		fileMap.get(parent).add(file);
 	}

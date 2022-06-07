@@ -1,12 +1,19 @@
 package dev.dietermai.compare.model;
 
-public record RootRecord(String path) implements IParent {
+import java.nio.file.Path;
 
-	public static RootRecord of(String path) {
+public record RootRecord(Path path) implements IParent {
+	public static RootRecord of(Path path) {
 		return new RootRecord(path);
 	}
 
-	public String path() {
-		return path;
+	@Override
+	public String name() {
+		return path.toString();
+	}
+
+	@Override
+	public IParent parent() {
+		return null;
 	}
 }

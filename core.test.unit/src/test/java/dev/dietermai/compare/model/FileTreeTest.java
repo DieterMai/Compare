@@ -2,6 +2,7 @@ package dev.dietermai.compare.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.nio.file.Path;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,8 +11,8 @@ import org.junit.jupiter.api.Test;
 class FileTreeTest {
 	@Test
 	void test_rootDirectory() {
-		RootRecord rootA = RootRecord.of("foo");
-		RootRecord rootB = RootRecord.of("bar");
+		RootRecord rootA = RootRecord.of(Path.of("foo"));
+		RootRecord rootB = RootRecord.of(Path.of("bar"));
 
 		assertEquals(rootA, new FileTree(rootA).root());
 		assertEquals(rootB, new FileTree(rootB).root());
@@ -19,8 +20,8 @@ class FileTreeTest {
 
 	@Test
 	void test_addFile_filesOf() {
-		RootRecord root = RootRecord.of("foo");
-		Set<ICommonFile> files = createFiles(RootRecord.of("foo"), "aaa", "bbb", "c");
+		RootRecord root = RootRecord.of(Path.of("foo"));
+		Set<ICommonFile> files = createFiles(RootRecord.of(Path.of("foo")), "aaa", "bbb", "c");
 
 		FileTree tree = new FileTree(root);
 		files.forEach(f -> tree.addFile(root, (FileRecord) f));
@@ -30,7 +31,7 @@ class FileTreeTest {
 
 	@Test
 	void test_complexTree() {
-		RootRecord ROOT = RootRecord.of("root");
+		RootRecord ROOT = RootRecord.of(Path.of("root"));
 		DirectoryRecord dirA = DirectoryRecord.of(ROOT, "a");
 		DirectoryRecord dirAA = DirectoryRecord.of(dirA, "aa");
 		DirectoryRecord dirB = DirectoryRecord.of(ROOT, "b");

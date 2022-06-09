@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 class FileTreeTest {
 	@Test
-	void test_rootDirectory() {
+	void test_root_afterConsturctore() {
 		RootRecord rootA = RootRecord.of(Path.of("foo"));
 		RootRecord rootB = RootRecord.of(Path.of("bar"));
 
@@ -19,14 +19,21 @@ class FileTreeTest {
 	}
 
 	@Test
+	void test_filesOf_afterConsturctore() {
+		RootRecord rootA = RootRecord.of(Path.of("foo"));
+
+		assertEquals(Set.of(), new FileTree(rootA).filesOf(rootA));
+	}
+	
+	@Test
 	void test_addFile_filesOf() {
 		RootRecord root = RootRecord.of(Path.of("foo"));
-		Set<ICommonFile> files = createFiles(RootRecord.of(Path.of("foo")), "aaa", "bbb", "c");
+		Set<ICommonFile> rootContent = createFiles(root, "aaa", "bbb", "c");
 
 		FileTree tree = new FileTree(root);
-		files.forEach(f -> tree.addFile(root, (FileRecord) f));
+		rootContent.forEach(f -> tree.addFile(root, (FileRecord) f));
 
-		assertEquals(files, tree.filesOf(root));
+		assertEquals(rootContent, tree.filesOf(root));
 	}
 
 	@Test

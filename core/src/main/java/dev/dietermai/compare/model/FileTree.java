@@ -10,11 +10,6 @@ public class FileTree {
 	private final RootRecord root;
 	private final Map<IParent, Set<ICommonFile>> fileMap;
 
-	FileTree(RootRecord root, Map<IParent, Set<ICommonFile>> fileMap) {
-		this.root = root;
-		this.fileMap = new HashMap<>(fileMap);
-	}
-
 	public FileTree(RootRecord root) {
 		this.root = root;
 		this.fileMap = new HashMap<>();

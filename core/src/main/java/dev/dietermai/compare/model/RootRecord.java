@@ -9,7 +9,7 @@ public record RootRecord(Path path) implements IParent {
 
 	@Override
 	public String name() {
-		return path.toString();
+		return path.toAbsolutePath().toString();
 	}
 
 	@Override

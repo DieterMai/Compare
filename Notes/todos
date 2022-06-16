@@ -1,3 +1,4 @@
 
-- Check if IParent can be replaced with an annotation
-- Handle possible exception in  in dev.dietermai.compare.service.FSService.addToSet(Set<ICommonFile>, IParent, Path)
+- Handle possible exception in  in FSService.addToSet(Set<ICommonFile>, IParent, Path)
+- Write test for deep tree FileTreeBuilder
+- Check if its ok to write parameterized tests for ICommonFile

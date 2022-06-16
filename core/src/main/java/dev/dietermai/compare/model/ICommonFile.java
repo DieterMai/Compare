@@ -11,8 +11,4 @@ public interface ICommonFile {
 	IParent parent();
 
 	Path path();
-	
-	default boolean isParent() {
-		return this.getClass().getAnnotation(Parent.class) != null;
-	}
 }

@@ -23,7 +23,7 @@ class FileRecordTest {
 
 		assertEquals(parent, file.parent());
 	}
-	
+
 	@Test
 	void test_name() {
 		final String NAME = "foo";
@@ -31,7 +31,7 @@ class FileRecordTest {
 
 		assertEquals(NAME, FileRecord.of(parent, NAME).name());
 	}
-	
+
 	@Test
 	void test_path() {
 		RootRecord parent = RootRecord.of(Path.of("root"));

@@ -24,7 +24,7 @@ class FileTreeTest {
 
 		assertEquals(Set.of(), new FileTree(rootA).filesOf(rootA));
 	}
-	
+
 	@Test
 	void test_addFile_filesOf() {
 		RootRecord root = RootRecord.of(Path.of("foo"));

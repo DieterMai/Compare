@@ -8,11 +8,9 @@ public record DirectoryRecord(IParent parent, String name) implements IParent {
 		return new DirectoryRecord(parent, name);
 	}
 
-
 	@Override
 	public Path path() {
 		return parent().path().resolve(name());
 	}
-
 
 }

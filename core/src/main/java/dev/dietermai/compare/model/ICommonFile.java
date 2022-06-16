@@ -6,6 +6,6 @@ public interface ICommonFile {
 	String name();
 
 	IParent parent();
-	
+
 	Path path();
 }

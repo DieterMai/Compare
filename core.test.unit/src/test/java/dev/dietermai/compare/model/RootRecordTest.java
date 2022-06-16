@@ -14,12 +14,12 @@ class RootRecordTest {
 		assertEquals(Path.of("foo"), RootRecord.of(Path.of("foo")).path());
 		assertEquals(Path.of("bar"), RootRecord.of(Path.of("bar")).path());
 	}
-	
+
 	@Test
 	void test_parent() {
 		assertNull(RootRecord.of(Path.of("foo")).parent());
 	}
-	
+
 	@Test
 	void test_name() {
 		final Path PATH = Path.of("root", "foo", "bar");

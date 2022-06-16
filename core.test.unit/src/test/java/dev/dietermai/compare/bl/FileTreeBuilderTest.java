@@ -37,9 +37,8 @@ class FileTreeBuilderTest {
 		builder = new FileTreeBuilder(fs);
 	}
 
-	
 	@ParameterizedTest
-	@ValueSource(strings = {"aaa", "bbb"})
+	@ValueSource(strings = { "aaa", "bbb" })
 	void test_build_root(String value) {
 		RootRecord root = RootRecord.of(Path.of("foo", value));
 		FileTree tree = builder.build(Paths.get("foo", value));
@@ -51,18 +50,18 @@ class FileTreeBuilderTest {
 		FileTree tree = builder.build(Paths.get("foo", "bar"));
 		assertEquals(Set.of(), tree.filesOf(tree.root()));
 	}
-	
+
 	@Test
 	void test_build_rootWithFiles() {
 		RootRecord root = RootRecord.of(Path.of("foo", "bar"));
 		Set<ICommonFile> files = files(root, "aaa", "bbb", "ccc", "ddd");
 		when(fs.getFiles(root)).thenReturn(files);
-		
+
 		FileTree tree = builder.build(Paths.get("foo", "bar"));
 		assertEquals(files, tree.filesOf(tree.root()));
 	}
-	
-	private Set<ICommonFile> files(IParent parent, String...names){
+
+	private Set<ICommonFile> files(IParent parent, String... names) {
 		return Stream.of(names).map(n -> FileRecord.of(parent, n)).collect(Collectors.toSet());
 	}
 }

@@ -16,37 +16,35 @@ public class FSService {
 
 	public Set<ICommonFile> getFiles(IParent parent) {
 		HashSet<ICommonFile> files = new HashSet<>();
-		
+
 		try {
 			Files.newDirectoryStream(parent.path()).forEach(path -> addToSet(files, parent, path));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return files;
 	}
-	
+
 	private void addToSet(Set<ICommonFile> set, IParent parent, Path path) {
 		File f = path.toFile(); // TODO UnsupportedOperationException
-		
-		if(!f.exists()) {
+
+		if (!f.exists()) {
 			return;
 		}
-		
+
 		set.add(toCommonFile(parent, f));
 	}
-	
+
 	private ICommonFile toCommonFile(IParent parent, File f) {
-		if(f.isFile()) {
+		if (f.isFile()) {
 			return FileRecord.of(parent, f.getName());
-		}else if(f.isDirectory()) {
+		} else if (f.isDirectory()) {
 			return DirectoryRecord.of(parent, f.getName());
-		}else {
+		} else {
 			throw new IllegalArgumentException();
 		}
 	}
-	
-	
 
 }

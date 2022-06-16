@@ -26,7 +26,7 @@ public class FileTree {
 
 	public void add(IParent parent, ICommonFile file) {
 		fileMap.get(parent).add(file);
-		if( file instanceof DirectoryRecord directory) {
+		if (file instanceof DirectoryRecord directory) {
 			fileMap.put(directory, new HashSet<>());
 		}
 	}

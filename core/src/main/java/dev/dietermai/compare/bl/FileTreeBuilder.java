@@ -20,13 +20,18 @@ public class FileTreeBuilder {
 
 	public FileTree build(Path path) {
 		FileTree tree = new FileTree(RootRecord.of(path));
-
-		IParent parent = tree.root();
-
-		Set<ICommonFile> children = fs.getFiles(parent);
-
-		children.forEach(name -> tree.add(parent, name));
-
+		buildSubTree(tree, tree.root());
 		return tree;
+	}
+	
+	private void buildSubTree(FileTree tree, IParent parent) {
+		Set<ICommonFile> children = fs.getFiles(parent);
+		for(ICommonFile child : children) {
+			tree.add(parent, child);
+			if(child instanceof IParent directory) {
+				buildSubTree(tree, directory);
+			}
+		}
+		
 	}
 }

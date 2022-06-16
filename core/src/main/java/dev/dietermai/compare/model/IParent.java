@@ -5,5 +5,4 @@ package dev.dietermai.compare.model;
  * At the moment this is only a marker interface
  */
 public interface IParent extends ICommonFile {
-
 }

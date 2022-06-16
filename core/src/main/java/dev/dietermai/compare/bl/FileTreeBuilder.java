@@ -5,6 +5,7 @@ import java.util.Set;
 
 import dev.dietermai.compare.model.FileRecord;
 import dev.dietermai.compare.model.FileTree;
+import dev.dietermai.compare.model.ICommonFile;
 import dev.dietermai.compare.model.IParent;
 import dev.dietermai.compare.model.RootRecord;
 import dev.dietermai.compare.service.FSService;
@@ -22,9 +23,9 @@ public class FileTreeBuilder {
 		
 		IParent parent = tree.root();
 		
-		Set<String> fileNames = fs.getFiles(parent);
+		Set<ICommonFile> children = fs.getFiles(parent);
 		
-		fileNames.forEach(name -> tree.addFile(parent, FileRecord.of(parent, name)));
+		children.forEach(name -> tree.add(parent, name));
 		
 		return tree;
 	}

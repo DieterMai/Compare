@@ -31,7 +31,7 @@ class FileTreeTest {
 		Set<ICommonFile> rootContent = createFiles(root, "aaa", "bbb", "c");
 
 		FileTree tree = new FileTree(root);
-		rootContent.forEach(f -> tree.addFile(root, (FileRecord) f));
+		rootContent.forEach(f -> tree.add(root, (FileRecord) f));
 
 		assertEquals(rootContent, tree.filesOf(root));
 	}
@@ -49,14 +49,14 @@ class FileTreeTest {
 		FileRecord fileAAA = FileRecord.of(dirAA, "aaa");
 
 		FileTree fileTree = new FileTree(ROOT);
-		fileTree.addDirectory(ROOT, dirA);
-		fileTree.addDirectory(dirA, dirAA);
-		fileTree.addDirectory(ROOT, dirB);
-		fileTree.addDirectory(ROOT, dirD);
-		fileTree.addFile(ROOT, fileC);
-		fileTree.addFile(dirA, fileAB);
-		fileTree.addFile(dirB, fileBA);
-		fileTree.addFile(dirAA, fileAAA);
+		fileTree.add(ROOT, dirA);
+		fileTree.add(dirA, dirAA);
+		fileTree.add(ROOT, dirB);
+		fileTree.add(ROOT, dirD);
+		fileTree.add(ROOT, fileC);
+		fileTree.add(dirA, fileAB);
+		fileTree.add(dirB, fileBA);
+		fileTree.add(dirAA, fileAAA);
 
 		assertEquals(ROOT, fileTree.root());
 		assertEquals(Set.of(dirA, dirB, fileC, dirD), fileTree.filesOf(ROOT));

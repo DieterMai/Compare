@@ -56,7 +56,7 @@ class FileTreeBuilderTest {
 	void test_build_rootWithFiles() {
 		RootRecord root = RootRecord.of(Path.of("foo", "bar"));
 		Set<ICommonFile> files = files(root, "aaa", "bbb", "ccc", "ddd");
-		when(fs.getFiles(root)).thenReturn(Set.of("aaa", "bbb", "ccc", "ddd"));
+		when(fs.getFiles(root)).thenReturn(files);
 		
 		FileTree tree = builder.build(Paths.get("foo", "bar"));
 		assertEquals(files, tree.filesOf(tree.root()));
@@ -65,5 +65,4 @@ class FileTreeBuilderTest {
 	private Set<ICommonFile> files(IParent parent, String...names){
 		return Stream.of(names).map(n -> FileRecord.of(parent, n)).collect(Collectors.toSet());
 	}
-	
 }

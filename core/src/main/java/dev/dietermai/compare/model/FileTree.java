@@ -24,15 +24,10 @@ public class FileTree {
 		return root;
 	}
 
-	// TODO maybe have only one add-method and use a switch do different things
-	// TODO file know its parent, so why have parent as its parameter?
-	public void addFile(IParent parent, FileRecord file) {
+	public void add(IParent parent, ICommonFile file) {
 		fileMap.get(parent).add(file);
+		if( file instanceof DirectoryRecord directory) {
+			fileMap.put(directory, new HashSet<>());
+		}
 	}
-
-	public void addDirectory(IParent parent, DirectoryRecord dir) {
-		fileMap.get(parent).add(dir);
-		fileMap.put(dir, new HashSet<>());
-	}
-
 }

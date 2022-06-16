@@ -11,7 +11,7 @@ import dev.dietermai.compare.model.RootRecord;
 import dev.dietermai.compare.service.FSService;
 
 public class FileTreeBuilder {
-	
+
 	private final FSService fs;
 
 	FileTreeBuilder(FSService fs) {
@@ -20,13 +20,13 @@ public class FileTreeBuilder {
 
 	public FileTree build(Path path) {
 		FileTree tree = new FileTree(RootRecord.of(path));
-		
+
 		IParent parent = tree.root();
-		
+
 		Set<ICommonFile> children = fs.getFiles(parent);
-		
+
 		children.forEach(name -> tree.add(parent, name));
-		
+
 		return tree;
 	}
 }

@@ -1,0 +1,3 @@
+
+- Check if IParent can be replaced with an annotation
+- Handle possible exception in  in dev.dietermai.compare.service.FSService.addToSet(Set<ICommonFile>, IParent, Path)

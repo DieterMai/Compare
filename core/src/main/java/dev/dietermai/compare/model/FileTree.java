@@ -5,6 +5,9 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * The FileTree represents the a file system tree from a defined root
+ */
 public class FileTree {
 
 	private final RootRecord root;

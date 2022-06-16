@@ -12,6 +12,9 @@ import dev.dietermai.compare.model.FileRecord;
 import dev.dietermai.compare.model.ICommonFile;
 import dev.dietermai.compare.model.IParent;
 
+/**
+ * Access provider to the file system
+ */
 public class FSService {
 
 	public Set<ICommonFile> getFiles(IParent parent) {

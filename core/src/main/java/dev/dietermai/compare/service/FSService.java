@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.util.HashSet;
 import java.util.Set;
 
+import dev.dietermai.compare.bl.CompareBlErrorHandler;
 import dev.dietermai.compare.model.DirectoryRecord;
 import dev.dietermai.compare.model.FileRecord;
 import dev.dietermai.compare.model.ICommonFile;
@@ -22,22 +23,23 @@ public class FSService {
 
 		try {
 			Files.newDirectoryStream(parent.path()).forEach(path -> addToSet(files, parent, path));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (IOException | SecurityException e) {
+			CompareBlErrorHandler.handleError(e);
 		}
 
 		return files;
 	}
 
 	private void addToSet(Set<ICommonFile> set, IParent parent, Path path) {
-		File f = path.toFile(); // TODO UnsupportedOperationException
-
-		if (!f.exists()) {
-			return;
+		try {
+			File f = path.toFile();
+			if (!f.exists()) {
+				return;
+			}
+			set.add(toCommonFile(parent, f));
+		} catch (UnsupportedOperationException | SecurityException e) {
+			CompareBlErrorHandler.handleError(e);
 		}
-
-		set.add(toCommonFile(parent, f));
 	}
 
 	private ICommonFile toCommonFile(IParent parent, File f) {
@@ -46,8 +48,8 @@ public class FSService {
 		} else if (f.isDirectory()) {
 			return DirectoryRecord.of(parent, f.getName());
 		} else {
-			throw new IllegalArgumentException();
+			CompareBlErrorHandler.handleError("File " + f.getAbsolutePath() + " is not a file and not a directory");
+			return null;
 		}
 	}
-
 }

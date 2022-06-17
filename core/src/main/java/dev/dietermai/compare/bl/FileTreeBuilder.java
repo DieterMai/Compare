@@ -23,15 +23,15 @@ public class FileTreeBuilder {
 		buildSubTree(tree, tree.root());
 		return tree;
 	}
-	
+
 	private void buildSubTree(FileTree tree, IParent parent) {
 		Set<ICommonFile> children = fs.getFiles(parent);
-		for(ICommonFile child : children) {
+		for (ICommonFile child : children) {
 			tree.add(parent, child);
-			if(child instanceof IParent directory) {
+			if (child instanceof IParent directory) {
 				buildSubTree(tree, directory);
 			}
 		}
-		
+
 	}
 }

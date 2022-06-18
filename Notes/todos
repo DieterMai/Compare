@@ -1,4 +1,2 @@
 
 - Write integration tests for FSService
-- Check if its ok to write parameterized tests for ICommonFile
-- Check if interfaces can be made seald

@@ -20,15 +20,10 @@ import dev.dietermai.compare.service.wrapper.FilesWrapper;
  */
 public class FSService {
 	@Inject
-	private final FilesWrapper filesWrapper;
+	private FilesWrapper filesWrapper;
 
 	@Inject
-	private final ICompareErrorHandler errorHandler;
-
-	public FSService(FilesWrapper filesWrapper, ICompareErrorHandler errorHandler) {
-		this.filesWrapper = filesWrapper;
-		this.errorHandler = errorHandler;
-	}
+	private ICompareErrorHandler errorHandler;
 
 	/**
 	 * Returns a set of common files that are located in the given parent

@@ -3,6 +3,8 @@ package dev.dietermai.compare.bl;
 import java.nio.file.Path;
 import java.util.Set;
 
+import javax.inject.Inject;
+
 import dev.dietermai.compare.model.FileTree;
 import dev.dietermai.compare.model.ICommonFile;
 import dev.dietermai.compare.model.IParent;
@@ -11,11 +13,8 @@ import dev.dietermai.compare.service.FSService;
 
 public class FileTreeBuilder {
 
-	private final FSService fs;
-
-	FileTreeBuilder(FSService fs) {
-		this.fs = fs;
-	}
+	@Inject
+	private FSService fs;
 
 	public FileTree build(Path path) {
 		FileTree tree = new FileTree(RootRecord.of(path));

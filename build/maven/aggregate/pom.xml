@@ -18,7 +18,6 @@
 
 	<modules>
 		<module>../../../core</module>
-		<module>../../../core.test.unit</module>
 	</modules>
 
 </project>

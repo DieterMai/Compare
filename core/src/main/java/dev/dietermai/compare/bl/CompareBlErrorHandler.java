@@ -1,12 +1,14 @@
 package dev.dietermai.compare.bl;
 
-public class CompareBlErrorHandler {
+public class CompareBlErrorHandler implements ICompareErrorHandler {
 
-	public static void handleError(Throwable e) {
+	@Override
+	public void handleError(Throwable e) {
 		new CompareBlException(e).printStackTrace();
 	}
 
-	public static void handleError(String string) {
+	@Override
+	public void handleError(String string) {
 		new CompareBlException(string).printStackTrace();
 	}
 

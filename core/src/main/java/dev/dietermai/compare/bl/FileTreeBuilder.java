@@ -3,7 +3,6 @@ package dev.dietermai.compare.bl;
 import java.nio.file.Path;
 import java.util.Set;
 
-import dev.dietermai.compare.model.FileRecord;
 import dev.dietermai.compare.model.FileTree;
 import dev.dietermai.compare.model.ICommonFile;
 import dev.dietermai.compare.model.IParent;

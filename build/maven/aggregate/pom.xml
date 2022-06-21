@@ -19,7 +19,6 @@
 	<modules>
 		<module>../../../core</module>
 		<module>../../../core.test.unit</module>
-		<module>../../../core.test.integration</module>
 	</modules>
 
 </project>

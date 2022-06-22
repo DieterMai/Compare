@@ -1,10 +1,13 @@
-package dev.dietermai.compare.model;
+package dev.dietermai.compare.model.file;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.nio.file.Path;
 
 import org.junit.jupiter.api.Test;
+
+import dev.dietermai.compare.model.file.Directory;
+import dev.dietermai.compare.model.file.FileTreeRoot;
 
 class DirectoryTest {
 

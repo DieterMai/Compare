@@ -5,10 +5,10 @@ import java.util.Set;
 
 import javax.inject.Inject;
 
-import dev.dietermai.compare.model.FileTree;
-import dev.dietermai.compare.model.ICommonFile;
-import dev.dietermai.compare.model.IParentFile;
-import dev.dietermai.compare.model.FileTreeRoot;
+import dev.dietermai.compare.model.file.FileTree;
+import dev.dietermai.compare.model.file.FileTreeRoot;
+import dev.dietermai.compare.model.file.ICommonFile;
+import dev.dietermai.compare.model.file.IParentFile;
 import dev.dietermai.compare.service.FSService;
 
 public class FileTreeBuilder {

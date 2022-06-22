@@ -1,4 +1,4 @@
-package dev.dietermai.compare.model;
+package dev.dietermai.compare.model.file;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -7,6 +7,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.junit.jupiter.api.Test;
+
+import dev.dietermai.compare.model.file.Directory;
+import dev.dietermai.compare.model.file.FileTree;
+import dev.dietermai.compare.model.file.FileTreeRoot;
+import dev.dietermai.compare.model.file.ICommonFile;
+import dev.dietermai.compare.model.file.RegularFile;
 
 class FileTreeTest {
 	@Test

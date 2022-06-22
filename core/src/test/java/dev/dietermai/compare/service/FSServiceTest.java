@@ -20,11 +20,11 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import dev.dietermai.compare.error.ICompareErrorHandler;
-import dev.dietermai.compare.model.Directory;
-import dev.dietermai.compare.model.RegularFile;
-import dev.dietermai.compare.model.ICommonFile;
-import dev.dietermai.compare.model.IParentFile;
-import dev.dietermai.compare.model.FileTreeRoot;
+import dev.dietermai.compare.model.file.Directory;
+import dev.dietermai.compare.model.file.FileTreeRoot;
+import dev.dietermai.compare.model.file.ICommonFile;
+import dev.dietermai.compare.model.file.IParentFile;
+import dev.dietermai.compare.model.file.RegularFile;
 import dev.dietermai.compare.service.wrapper.FilesWrapper;
 
 @ExtendWith(MockitoExtension.class)

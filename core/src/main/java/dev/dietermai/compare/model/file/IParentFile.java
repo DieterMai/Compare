@@ -1,4 +1,4 @@
-package dev.dietermai.compare.model;
+package dev.dietermai.compare.model.file;
 
 /**
  * Interface for files that can be parents. At the moment this is only a marker

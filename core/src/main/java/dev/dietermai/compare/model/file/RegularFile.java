@@ -1,4 +1,4 @@
-package dev.dietermai.compare.model;
+package dev.dietermai.compare.model.file;
 
 import java.nio.file.Path;
 

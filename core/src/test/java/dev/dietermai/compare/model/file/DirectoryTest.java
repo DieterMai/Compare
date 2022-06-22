@@ -6,9 +6,6 @@ import java.nio.file.Path;
 
 import org.junit.jupiter.api.Test;
 
-import dev.dietermai.compare.model.file.Directory;
-import dev.dietermai.compare.model.file.FileTreeRoot;
-
 class DirectoryTest {
 
 	@Test

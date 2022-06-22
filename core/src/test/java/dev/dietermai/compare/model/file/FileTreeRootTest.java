@@ -7,8 +7,6 @@ import java.nio.file.Path;
 
 import org.junit.jupiter.api.Test;
 
-import dev.dietermai.compare.model.file.FileTreeRoot;
-
 class FileTreeRootTest {
 
 	@Test

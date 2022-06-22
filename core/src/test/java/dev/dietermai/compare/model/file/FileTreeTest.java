@@ -8,12 +8,6 @@ import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
-import dev.dietermai.compare.model.file.Directory;
-import dev.dietermai.compare.model.file.FileTree;
-import dev.dietermai.compare.model.file.FileTreeRoot;
-import dev.dietermai.compare.model.file.ICommonFile;
-import dev.dietermai.compare.model.file.RegularFile;
-
 class FileTreeTest {
 	@Test
 	void test_root_afterConsturctore() {

@@ -1,4 +1,4 @@
-package dev.dietermai.compare.bl;
+package dev.dietermai.compare.error;
 
 public class CompareException extends Exception {
 

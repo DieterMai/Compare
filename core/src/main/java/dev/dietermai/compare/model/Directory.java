@@ -5,10 +5,10 @@ import java.nio.file.Path;
 /**
  * The DirectoryRecord represents a record of a file system directory
  */
-public record DirectoryRecord(IParent parent, String name) implements IParent {
+public record Directory(IParentFile parent, String name) implements IParentFile {
 
-	public static DirectoryRecord of(IParent parent, String name) {
-		return new DirectoryRecord(parent, name);
+	public static Directory of(IParentFile parent, String name) {
+		return new Directory(parent, name);
 	}
 
 	@Override

@@ -5,9 +5,9 @@ import java.nio.file.Path;
 /**
  * Record of a root file of the FileTree
  */
-public record RootRecord(Path path) implements IParent {
-	public static RootRecord of(Path path) {
-		return new RootRecord(path);
+public record FileTreeRoot(Path path) implements IParentFile {
+	public static FileTreeRoot of(Path path) {
+		return new FileTreeRoot(path);
 	}
 
 	@Override
@@ -16,7 +16,7 @@ public record RootRecord(Path path) implements IParent {
 	}
 
 	@Override
-	public IParent parent() {
+	public IParentFile parent() {
 		return null;
 	}
 }

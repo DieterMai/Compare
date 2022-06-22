@@ -7,8 +7,8 @@ import javax.inject.Inject;
 
 import dev.dietermai.compare.model.FileTree;
 import dev.dietermai.compare.model.ICommonFile;
-import dev.dietermai.compare.model.IParent;
-import dev.dietermai.compare.model.RootRecord;
+import dev.dietermai.compare.model.IParentFile;
+import dev.dietermai.compare.model.FileTreeRoot;
 import dev.dietermai.compare.service.FSService;
 
 public class FileTreeBuilder {
@@ -17,16 +17,16 @@ public class FileTreeBuilder {
 	private FSService fs;
 
 	public FileTree build(Path path) {
-		FileTree tree = new FileTree(RootRecord.of(path));
+		FileTree tree = new FileTree(FileTreeRoot.of(path));
 		buildSubTree(tree, tree.root());
 		return tree;
 	}
 
-	private void buildSubTree(FileTree tree, IParent parent) {
+	private void buildSubTree(FileTree tree, IParentFile parent) {
 		Set<ICommonFile> children = fs.getFiles(parent);
 		for (ICommonFile child : children) {
 			tree.add(parent, child);
-			if (child instanceof IParent directory) {
+			if (child instanceof IParentFile directory) {
 				buildSubTree(tree, directory);
 			}
 		}

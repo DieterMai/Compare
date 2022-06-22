@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 class FileTreeTest {
 	@Test
 	void test_root_afterConsturctore() {
-		RootRecord rootA = RootRecord.of(Path.of("foo"));
-		RootRecord rootB = RootRecord.of(Path.of("bar"));
+		FileTreeRoot rootA = FileTreeRoot.of(Path.of("foo"));
+		FileTreeRoot rootB = FileTreeRoot.of(Path.of("bar"));
 
 		assertEquals(rootA, new FileTree(rootA).root());
 		assertEquals(rootB, new FileTree(rootB).root());
@@ -20,33 +20,33 @@ class FileTreeTest {
 
 	@Test
 	void test_filesOf_afterConsturctore() {
-		RootRecord rootA = RootRecord.of(Path.of("foo"));
+		FileTreeRoot rootA = FileTreeRoot.of(Path.of("foo"));
 
 		assertEquals(Set.of(), new FileTree(rootA).filesOf(rootA));
 	}
 
 	@Test
 	void test_addFile_filesOf() {
-		RootRecord root = RootRecord.of(Path.of("foo"));
+		FileTreeRoot root = FileTreeRoot.of(Path.of("foo"));
 		Set<ICommonFile> rootContent = createFiles(root, "aaa", "bbb", "c");
 
 		FileTree tree = new FileTree(root);
-		rootContent.forEach(f -> tree.add(root, (FileRecord) f));
+		rootContent.forEach(f -> tree.add(root, (RegularFile) f));
 
 		assertEquals(rootContent, tree.filesOf(root));
 	}
 
 	@Test
 	void test_complexTree() {
-		RootRecord ROOT = RootRecord.of(Path.of("root"));
-		DirectoryRecord dirA = DirectoryRecord.of(ROOT, "a");
-		DirectoryRecord dirAA = DirectoryRecord.of(dirA, "aa");
-		DirectoryRecord dirB = DirectoryRecord.of(ROOT, "b");
-		DirectoryRecord dirD = DirectoryRecord.of(ROOT, "d");
-		FileRecord fileC = FileRecord.of(ROOT, "c");
-		FileRecord fileAB = FileRecord.of(dirA, "ab");
-		FileRecord fileBA = FileRecord.of(dirB, "ba");
-		FileRecord fileAAA = FileRecord.of(dirAA, "aaa");
+		FileTreeRoot ROOT = FileTreeRoot.of(Path.of("root"));
+		Directory dirA = Directory.of(ROOT, "a");
+		Directory dirAA = Directory.of(dirA, "aa");
+		Directory dirB = Directory.of(ROOT, "b");
+		Directory dirD = Directory.of(ROOT, "d");
+		RegularFile fileC = RegularFile.of(ROOT, "c");
+		RegularFile fileAB = RegularFile.of(dirA, "ab");
+		RegularFile fileBA = RegularFile.of(dirB, "ba");
+		RegularFile fileAAA = RegularFile.of(dirAA, "aaa");
 
 		FileTree fileTree = new FileTree(ROOT);
 		fileTree.add(ROOT, dirA);
@@ -66,10 +66,10 @@ class FileTreeTest {
 		assertEquals(Set.of(), fileTree.filesOf(dirD));
 	}
 
-	private Set<ICommonFile> createFiles(RootRecord parent, String... names) {
+	private Set<ICommonFile> createFiles(FileTreeRoot parent, String... names) {
 		Set<ICommonFile> files = new HashSet<>();
 		for (String name : names) {
-			files.add(FileRecord.of(parent, name));
+			files.add(RegularFile.of(parent, name));
 		}
 		return files;
 	}

@@ -10,26 +10,26 @@ import java.util.Set;
  */
 public class FileTree {
 
-	private final RootRecord root;
-	private final Map<IParent, Set<ICommonFile>> fileMap;
+	private final FileTreeRoot root;
+	private final Map<IParentFile, Set<ICommonFile>> fileMap;
 
-	public FileTree(RootRecord root) {
+	public FileTree(FileTreeRoot root) {
 		this.root = root;
 		this.fileMap = new HashMap<>();
 		this.fileMap.put(root, new HashSet<>());
 	}
 
-	public Set<ICommonFile> filesOf(IParent parent) {
+	public Set<ICommonFile> filesOf(IParentFile parent) {
 		return fileMap.get(parent);
 	}
 
-	public RootRecord root() {
+	public FileTreeRoot root() {
 		return root;
 	}
 
-	public void add(IParent parent, ICommonFile file) {
+	public void add(IParentFile parent, ICommonFile file) {
 		fileMap.get(parent).add(file);
-		if (file instanceof DirectoryRecord directory) {
+		if (file instanceof Directory directory) {
 			fileMap.put(directory, new HashSet<>());
 		}
 	}

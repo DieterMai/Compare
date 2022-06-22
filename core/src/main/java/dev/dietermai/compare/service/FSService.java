@@ -9,10 +9,10 @@ import java.util.Set;
 import javax.inject.Inject;
 
 import dev.dietermai.compare.error.ICompareErrorHandler;
-import dev.dietermai.compare.model.DirectoryRecord;
-import dev.dietermai.compare.model.FileRecord;
+import dev.dietermai.compare.model.Directory;
+import dev.dietermai.compare.model.RegularFile;
 import dev.dietermai.compare.model.ICommonFile;
-import dev.dietermai.compare.model.IParent;
+import dev.dietermai.compare.model.IParentFile;
 import dev.dietermai.compare.service.wrapper.FilesWrapper;
 
 /**
@@ -31,7 +31,7 @@ public class FSService {
 	 * @param parent The parent file the children are searched in.
 	 * @return A set of common files
 	 */
-	public Set<ICommonFile> getFiles(IParent parent) {
+	public Set<ICommonFile> getFiles(IParentFile parent) {
 		HashSet<ICommonFile> files = new HashSet<>();
 
 		try {
@@ -43,7 +43,7 @@ public class FSService {
 		return files;
 	}
 
-	private void addToSet(Set<ICommonFile> set, IParent parent, Path path) {
+	private void addToSet(Set<ICommonFile> set, IParentFile parent, Path path) {
 		try {
 			File f = path.toFile();
 			if (!f.exists()) {
@@ -58,11 +58,11 @@ public class FSService {
 		}
 	}
 
-	private ICommonFile toCommonFile(IParent parent, File f) {
+	private ICommonFile toCommonFile(IParentFile parent, File f) {
 		if (f.isFile()) {
-			return FileRecord.of(parent, f.getName());
+			return RegularFile.of(parent, f.getName());
 		} else if (f.isDirectory()) {
-			return DirectoryRecord.of(parent, f.getName());
+			return Directory.of(parent, f.getName());
 		} else {
 			errorHandler.handleError("File " + f.getAbsolutePath() + " is not a file and not a directory");
 			return null;

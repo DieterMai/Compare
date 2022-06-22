@@ -20,11 +20,11 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import dev.dietermai.compare.error.ICompareErrorHandler;
-import dev.dietermai.compare.model.DirectoryRecord;
-import dev.dietermai.compare.model.FileRecord;
+import dev.dietermai.compare.model.Directory;
+import dev.dietermai.compare.model.RegularFile;
 import dev.dietermai.compare.model.ICommonFile;
-import dev.dietermai.compare.model.IParent;
-import dev.dietermai.compare.model.RootRecord;
+import dev.dietermai.compare.model.IParentFile;
+import dev.dietermai.compare.model.FileTreeRoot;
 import dev.dietermai.compare.service.wrapper.FilesWrapper;
 
 @ExtendWith(MockitoExtension.class)
@@ -45,7 +45,7 @@ class FSServiceTest {
 	@Test
 	void test_getFiles_IOExcpetion() throws IOException {
 		// Arrange
-		IParent parent = RootRecord.of(Path.of("foo", "bar"));
+		IParentFile parent = FileTreeRoot.of(Path.of("foo", "bar"));
 		var ioe = new IOException();
 		when(files.newDirectoryStream(parent.path())).thenThrow(ioe);
 
@@ -60,7 +60,7 @@ class FSServiceTest {
 	@Test
 	void test_getFiles_pathToFileIsUnsupported() throws IOException {
 		// Arrange
-		IParent parent = RootRecord.of(Path.of("foo", "bar"));
+		IParentFile parent = FileTreeRoot.of(Path.of("foo", "bar"));
 		Path path = mock(Path.class);
 		var uoe = new UnsupportedOperationException();
 		when(path.toFile()).thenThrow(uoe);
@@ -77,7 +77,7 @@ class FSServiceTest {
 	@Test
 	void test_getFiles_fileExistsCauseseSecurityException() throws IOException {
 		// Arrange
-		IParent parent = RootRecord.of(Path.of("foo", "bar"));
+		IParentFile parent = FileTreeRoot.of(Path.of("foo", "bar"));
 		var se = new SecurityException();
 		Path path = mock(Path.class);
 		File file = mock(File.class);
@@ -96,7 +96,7 @@ class FSServiceTest {
 	@Test
 	void test_getFiles_fileDoesNotExist() throws IOException {
 		// Arrange
-		IParent parent = RootRecord.of(Path.of("foo", "bar"));
+		IParentFile parent = FileTreeRoot.of(Path.of("foo", "bar"));
 		Path pathA = mockPath(Boolean.TRUE, "a", FileType.regular);
 		Path pathB = mockPath(Boolean.FALSE, "b", FileType.regular);
 		Path pathC = mockPath(Boolean.TRUE, "c", FileType.regular);
@@ -107,8 +107,8 @@ class FSServiceTest {
 		Set<ICommonFile> actual = fsService.getFiles(parent);
 
 		// Assert
-		FileRecord fileRecordA = new FileRecord(parent, "a");
-		FileRecord fileRecordC = new FileRecord(parent, "c");
+		RegularFile fileRecordA = new RegularFile(parent, "a");
+		RegularFile fileRecordC = new RegularFile(parent, "c");
 		assertEquals(Set.of(fileRecordA, fileRecordC), actual);
 		verifyNoInteractions(errorHandler);
 	}
@@ -116,7 +116,7 @@ class FSServiceTest {
 	@Test
 	void test_getFiles_fileIsRegularFileAndDirectory() throws IOException {
 		// Arrange
-		IParent parent = RootRecord.of(Path.of("foo", "bar"));
+		IParentFile parent = FileTreeRoot.of(Path.of("foo", "bar"));
 		Path pathA = mockPath(Boolean.TRUE, "a", FileType.regular);
 		Path pathB = mockPath(Boolean.TRUE, "b", FileType.directory);
 		Path pathC = mockPath(Boolean.TRUE, "c", FileType.regular);
@@ -128,10 +128,10 @@ class FSServiceTest {
 		Set<ICommonFile> actual = fsService.getFiles(parent);
 
 		// Assert
-		FileRecord fileRecordA = new FileRecord(parent, "a");
-		DirectoryRecord directoryRecordB = new DirectoryRecord(parent, "b");
-		FileRecord fileRecordC = new FileRecord(parent, "c");
-		DirectoryRecord directoryRecordD = new DirectoryRecord(parent, "d");
+		RegularFile fileRecordA = new RegularFile(parent, "a");
+		Directory directoryRecordB = new Directory(parent, "b");
+		RegularFile fileRecordC = new RegularFile(parent, "c");
+		Directory directoryRecordD = new Directory(parent, "d");
 
 		assertEquals(Set.of(fileRecordA, directoryRecordB, fileRecordC, directoryRecordD), actual);
 		verifyNoInteractions(errorHandler);
@@ -140,7 +140,7 @@ class FSServiceTest {
 	@Test
 	void test_getFiles_fileIsNitherRegularNorDirectory() throws IOException {
 		// Arrange
-		IParent parent = RootRecord.of(Path.of("foo", "bar"));
+		IParentFile parent = FileTreeRoot.of(Path.of("foo", "bar"));
 		Path pathA = mockPath(Boolean.TRUE, "a", FileType.regular);
 		Path pathB = mockPath(Boolean.TRUE, "b", FileType.none);
 		Path pathC = mockPath(Boolean.TRUE, "c", FileType.regular);
@@ -151,8 +151,8 @@ class FSServiceTest {
 		Set<ICommonFile> actual = fsService.getFiles(parent);
 
 		// Assert
-		FileRecord fileRecordA = new FileRecord(parent, "a");
-		FileRecord fileRecordC = new FileRecord(parent, "c");
+		RegularFile fileRecordA = new RegularFile(parent, "a");
+		RegularFile fileRecordC = new RegularFile(parent, "c");
 		assertEquals(Set.of(fileRecordA, fileRecordC), actual);
 		verify(errorHandler).handleError("File [absolute]/b is not a file and not a directory");
 		verifyNoMoreInteractions(errorHandler);

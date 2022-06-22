@@ -17,12 +17,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import dev.dietermai.compare.model.DirectoryRecord;
-import dev.dietermai.compare.model.FileRecord;
+import dev.dietermai.compare.model.Directory;
+import dev.dietermai.compare.model.RegularFile;
 import dev.dietermai.compare.model.FileTree;
 import dev.dietermai.compare.model.ICommonFile;
-import dev.dietermai.compare.model.IParent;
-import dev.dietermai.compare.model.RootRecord;
+import dev.dietermai.compare.model.IParentFile;
+import dev.dietermai.compare.model.FileTreeRoot;
 import dev.dietermai.compare.service.FSService;
 
 @ExtendWith(MockitoExtension.class)
@@ -37,7 +37,7 @@ class FileTreeBuilderTest {
 	@ParameterizedTest
 	@ValueSource(strings = { "aaa", "bbb" })
 	void test_build_root(String value) {
-		RootRecord root = RootRecord.of(Path.of("foo", value));
+		FileTreeRoot root = FileTreeRoot.of(Path.of("foo", value));
 		FileTree tree = builder.build(Paths.get("foo", value));
 		assertEquals(root, tree.root());
 	}
@@ -50,7 +50,7 @@ class FileTreeBuilderTest {
 
 	@Test
 	void test_build_rootWithFiles() {
-		RootRecord root = RootRecord.of(Path.of("foo", "bar"));
+		FileTreeRoot root = FileTreeRoot.of(Path.of("foo", "bar"));
 		Set<ICommonFile> files = files(root, "aaa", "bbb", "ccc", "ddd");
 		when(fs.getFiles(root)).thenReturn(files);
 
@@ -63,14 +63,14 @@ class FileTreeBuilderTest {
 		Path rootPath = Path.of("foo", "bar");
 
 		// setup expected
-		RootRecord root = RootRecord.of(rootPath);
-		FileRecord fileA = FileRecord.of(root, "a");
-		DirectoryRecord dirB = DirectoryRecord.of(root, "b");
-		DirectoryRecord dirC = DirectoryRecord.of(root, "c");
-		FileRecord fileCA = FileRecord.of(dirC, "ca");
-		DirectoryRecord dirCB = DirectoryRecord.of(dirC, "cb");
-		DirectoryRecord dirCC = DirectoryRecord.of(dirC, "cc");
-		DirectoryRecord dirCBA = DirectoryRecord.of(dirCB, "cba");
+		FileTreeRoot root = FileTreeRoot.of(rootPath);
+		RegularFile fileA = RegularFile.of(root, "a");
+		Directory dirB = Directory.of(root, "b");
+		Directory dirC = Directory.of(root, "c");
+		RegularFile fileCA = RegularFile.of(dirC, "ca");
+		Directory dirCB = Directory.of(dirC, "cb");
+		Directory dirCC = Directory.of(dirC, "cc");
+		Directory dirCBA = Directory.of(dirCB, "cba");
 
 		Set<ICommonFile> filesInRoot = Set.of(fileA, dirB, dirC);
 		Set<ICommonFile> filesInDirC = Set.of(fileCA, dirCB, dirCC);
@@ -95,7 +95,7 @@ class FileTreeBuilderTest {
 		assertEquals(Set.of(), tree.filesOf(dirCBA));
 	}
 
-	private Set<ICommonFile> files(IParent parent, String... names) {
-		return Stream.of(names).map(n -> FileRecord.of(parent, n)).collect(Collectors.toSet());
+	private Set<ICommonFile> files(IParentFile parent, String... names) {
+		return Stream.of(names).map(n -> RegularFile.of(parent, n)).collect(Collectors.toSet());
 	}
 }

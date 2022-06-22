@@ -1,8 +1,10 @@
 
 
+
+- Unit test for RegularFileCompare
+- Create interface IFileCompare)
+- Create Record DirectoryCompare
+- ComparedTree
 - FileTreeComparerer
 - ComponFileCompare
-- FileCompare
-- DirectoryCompare
-- ComparedTree
 

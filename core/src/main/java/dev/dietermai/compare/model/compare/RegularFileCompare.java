@@ -7,7 +7,7 @@ public record RegularFileCompare(String name, List<RegularFile> files) {
 	public boolean existense() {
 		return files.stream().allMatch(f -> f != null);
 	}
-	
+
 	public boolean perfect() {
 		return existense();
 	}

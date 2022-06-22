@@ -1,7 +1,5 @@
 package dev.dietermai.compare.error;
 
-import dev.dietermai.compare.bl.ICompareErrorHandler;
-
 public class CompareErrorHandler implements ICompareErrorHandler {
 
 	@Override

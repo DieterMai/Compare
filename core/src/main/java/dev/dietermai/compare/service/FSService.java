@@ -8,7 +8,7 @@ import java.util.Set;
 
 import javax.inject.Inject;
 
-import dev.dietermai.compare.bl.ICompareErrorHandler;
+import dev.dietermai.compare.error.ICompareErrorHandler;
 import dev.dietermai.compare.model.DirectoryRecord;
 import dev.dietermai.compare.model.FileRecord;
 import dev.dietermai.compare.model.ICommonFile;

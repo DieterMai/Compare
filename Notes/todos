@@ -1,7 +1,7 @@
 
 
 
-- Unit test for RegularFileCompare
+- Maybe implement isNull in all ICommonFile
 - Create interface IFileCompare)
 - Create Record DirectoryCompare
 - ComparedTree

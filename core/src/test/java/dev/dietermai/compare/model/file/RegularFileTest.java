@@ -39,4 +39,10 @@ class RegularFileTest {
 
 		assertEquals(Path.of("root", "file"), file.path());
 	}
+
+	@Test
+	void test_isNull() {
+		assertFalse(RegularFile.of(null, "file").isNull());
+		assertTrue(RegularFile.NULL.isNull());
+	}
 }

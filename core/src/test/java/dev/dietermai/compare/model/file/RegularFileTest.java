@@ -41,8 +41,8 @@ class RegularFileTest {
 	}
 
 	@Test
-	void test_isNull() {
-		assertFalse(RegularFile.of(null, "file").isNull());
-		assertTrue(RegularFile.NULL.isNull());
+	void test_exists() {
+		assertFalse(RegularFile.of(null, "file").exists());
+		assertTrue(RegularFile.NULL.exists());
 	}
 }

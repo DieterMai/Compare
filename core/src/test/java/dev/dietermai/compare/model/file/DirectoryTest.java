@@ -40,4 +40,10 @@ class DirectoryTest {
 		assertEquals(Path.of("root", "dirA", "dirB", "dirC"), dirC.path());
 
 	}
+
+	@Test
+	void test_exists() {
+		assertFalse(Directory.of(null, "file").exists());
+		assertTrue(Directory.NULL.exists());
+	}
 }

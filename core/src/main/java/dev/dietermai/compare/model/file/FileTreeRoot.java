@@ -19,4 +19,9 @@ public record FileTreeRoot(Path path) implements IParentFile {
 	public IParentFile parent() {
 		return null;
 	}
+
+	@Override
+	public boolean exists() {
+		return true;
+	}
 }

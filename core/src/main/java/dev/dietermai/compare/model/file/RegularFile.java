@@ -17,7 +17,7 @@ public record RegularFile(IParentFile parent, String name) implements ICommonFil
 		return parent.path().resolve(name);
 	}
 
-	public boolean isNull() {
+	public boolean exists() {
 		return this == NULL;
 	}
 }

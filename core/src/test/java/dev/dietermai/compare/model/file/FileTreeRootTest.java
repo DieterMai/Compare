@@ -2,6 +2,7 @@ package dev.dietermai.compare.model.file;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.nio.file.Path;
 
@@ -26,5 +27,10 @@ class FileTreeRootTest {
 		FileTreeRoot parent = FileTreeRoot.of(Path.of("root", "foo", "bar"));
 
 		assertEquals(PATH.toAbsolutePath().toString(), parent.name());
+	}
+
+	@Test
+	void test_exists() {
+		assertTrue(FileTreeRoot.of(Path.of("foo")).exists());
 	}
 }

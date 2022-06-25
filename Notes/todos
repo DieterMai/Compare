@@ -1,5 +1,6 @@
 
 
+- Add Set of compareRegularFile to CompareDirectory
 - ComparedTree
 - FileTreeComparerer
 - ComponFileCompare

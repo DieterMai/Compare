@@ -10,7 +10,7 @@ implements ComparedCommonFile<Directory>
 	public static ComparedDirectory of(String name, List<Directory> files) {
 		return new ComparedDirectory(name, files);
 	}
-
+	
 	public boolean perfect() {
 		return existense();
 	}

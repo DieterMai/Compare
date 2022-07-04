@@ -1,7 +1,12 @@
 
-
+[OPEN]
+- dev.dietermai.compare.bl.FileTreeComparer.test_compare_rootsWithEqualRegularFiles()
 - Add Set of compareRegularFile to CompareDirectory
 - ComparedTree
 - FileTreeComparerer
 - ComponFileCompare
+
+[DONE]
+
+[2022-06-25]
 

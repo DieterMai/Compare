@@ -17,9 +17,9 @@
 
 
 	<modules>
-		<module>../../../core</module>
-		<module>../../../service</module>
-		<module>../../../test</module>
+		<module>../../../compare.core</module>
+		<module>../../../compare.service</module>
+		<module>../../../compare.test</module>
 	</modules>
 
 </project>

@@ -25,8 +25,7 @@ import dev.dietermai.compare.core.model.file.FileTreeRoot;
 import dev.dietermai.compare.core.model.file.ICommonFile;
 import dev.dietermai.compare.core.model.file.IParentFile;
 import dev.dietermai.compare.core.model.file.RegularFile;
-import dev.dietermai.compare.core.service.FSService;
-import dev.dietermai.compare.core.service.wrapper.FilesWrapper;
+import dev.dietermai.compare.service.wrapper.FilesWrapper;
 
 @ExtendWith(MockitoExtension.class)
 class FSServiceTest {

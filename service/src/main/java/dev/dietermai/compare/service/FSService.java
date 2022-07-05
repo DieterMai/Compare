@@ -1,4 +1,4 @@
-package dev.dietermai.compare.core.service;
+package dev.dietermai.compare.service;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import dev.dietermai.compare.core.model.file.Directory;
 import dev.dietermai.compare.core.model.file.ICommonFile;
 import dev.dietermai.compare.core.model.file.IParentFile;
 import dev.dietermai.compare.core.model.file.RegularFile;
-import dev.dietermai.compare.core.service.wrapper.FilesWrapper;
+import dev.dietermai.compare.service.wrapper.FilesWrapper;
 
 /**
  * Access provider to the file system

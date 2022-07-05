@@ -3,15 +3,15 @@ package dev.dietermai.compare.core.bl;
 import java.nio.file.Path;
 import java.util.Set;
 
+import dev.dietermai.compare.core.api.service.IFSService;
 import dev.dietermai.compare.core.model.file.FileTree;
 import dev.dietermai.compare.core.model.file.FileTreeRoot;
 import dev.dietermai.compare.core.model.file.ICommonFile;
 import dev.dietermai.compare.core.model.file.IParentFile;
-import dev.dietermai.compare.core.service.FSService;
 
 public class FileTreeBuilder {
 
-	private FSService fs;
+	private IFSService fs;
 
 	public FileTree build(Path path) {
 		FileTree tree = new FileTree(FileTreeRoot.of(path));

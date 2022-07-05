@@ -3,7 +3,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>compare.core.test</artifactId>
+	<artifactId>compare.test</artifactId>
 
 	<parent>
 		<groupId>dev.dietermai</groupId>
@@ -18,13 +18,13 @@
 			<artifactId>compare.core</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-	
+		
 		<dependency>
-			<groupId>javax.inject</groupId>
-			<artifactId>javax.inject</artifactId>
-			<version>${javax.inject.version}</version>
+			<groupId>dev.dietermai</groupId>
+			<artifactId>compare.service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-
+	
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter</artifactId>

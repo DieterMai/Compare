@@ -1,4 +1,4 @@
-package dev.dietermai.compare.core.service.wrapper;
+package dev.dietermai.compare.service.wrapper;
 
 import java.io.IOException;
 import java.nio.file.Files;

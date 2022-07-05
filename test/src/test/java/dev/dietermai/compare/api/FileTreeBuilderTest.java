@@ -17,6 +17,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import dev.dietermai.compare.core.api.service.IFSService;
 import dev.dietermai.compare.core.bl.FileTreeBuilder;
 import dev.dietermai.compare.core.model.file.Directory;
 import dev.dietermai.compare.core.model.file.FileTree;
@@ -24,13 +25,12 @@ import dev.dietermai.compare.core.model.file.FileTreeRoot;
 import dev.dietermai.compare.core.model.file.ICommonFile;
 import dev.dietermai.compare.core.model.file.IParentFile;
 import dev.dietermai.compare.core.model.file.RegularFile;
-import dev.dietermai.compare.core.service.FSService;
 
 @ExtendWith(MockitoExtension.class)
 class FileTreeBuilderTest {
 
 	@Mock
-	FSService fs;
+	IFSService fs;
 
 	@InjectMocks
 	FileTreeBuilder builder;

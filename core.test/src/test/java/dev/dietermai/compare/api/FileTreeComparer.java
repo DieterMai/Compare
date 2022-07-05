@@ -1,4 +1,4 @@
-package dev.dietermai.compare.bl;
+package dev.dietermai.compare.api;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 
 import org.junit.jupiter.api.Test;
 
-import dev.dietermai.compare.core.bl.FileTreeComparator;
+import dev.dietermai.compare.core.api.FileTreeComparator;
 import dev.dietermai.compare.core.model.compare.ComparedRegularFile;
 import dev.dietermai.compare.core.model.compare.ComparedTree;
 import dev.dietermai.compare.core.model.file.FileTreeRoot;

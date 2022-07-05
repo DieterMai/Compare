@@ -1,4 +1,4 @@
-package dev.dietermai.compare.core.bl;
+package dev.dietermai.compare.core.api;
 
 import dev.dietermai.compare.core.model.compare.ComparedTree;
 import dev.dietermai.compare.core.model.file.FileTreeRoot;

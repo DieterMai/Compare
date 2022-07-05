@@ -6,8 +6,6 @@ import java.nio.file.Path;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.inject.Inject;
-
 import dev.dietermai.compare.core.error.ICompareErrorHandler;
 import dev.dietermai.compare.core.model.file.Directory;
 import dev.dietermai.compare.core.model.file.ICommonFile;
@@ -19,10 +17,8 @@ import dev.dietermai.compare.core.service.wrapper.FilesWrapper;
  * Access provider to the file system
  */
 public class FSService {
-	@Inject
 	private FilesWrapper filesWrapper;
 
-	@Inject
 	private ICompareErrorHandler errorHandler;
 
 	/**

@@ -18,6 +18,7 @@
 
 	<modules>
 		<module>../../../core</module>
+		<module>../../../core.test</module>
 	</modules>
 
 </project>
